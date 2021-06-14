@@ -1,12 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import { GithubUsersContext } from '../context/context'
 
-const SingleUser = ({ user: { login, avatar_url, html_url } }) => {
-  const [isFavorite, setIsFavorite] = useState(false)
+const SingleUser = ({ user }) => {
+  const { docId, login, avatar_url, html_url, node_id } = user
+  const { addFavoriteUser, fav, removeFavorite } =
+    useContext(GithubUsersContext)
+  const nodeIds = fav.map((u) => u.node_id)
+  const [isFavorite, setIsFavorite] = useState(nodeIds.includes(node_id))
+
   return (
     <article className='card'>
       <button
-        onClick={() => setIsFavorite(!isFavorite)}
+        onClick={() => {
+          if (isFavorite) {
+            removeFavorite(docId)
+          } else {
+            addFavoriteUser(user)
+          }
+          setIsFavorite(!isFavorite)
+        }}
         className={isFavorite ? 'star-icon is-favorite' : 'star-icon'}
       >
         {isFavorite ? <AiFillStar /> : <AiOutlineStar />}

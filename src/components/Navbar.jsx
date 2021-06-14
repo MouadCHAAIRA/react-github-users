@@ -1,11 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <>
       <nav className='nav-section'>
-        <button className='btn'>All</button>
-        <button className='btn'>FAVORITE</button>
+        <Link to='/' className='nav-btn'>
+          Home
+        </Link>
+
+        <Link to='/favorite' className='nav-btn'>
+          Favorite
+        </Link>
       </nav>
     </>
   )

@@ -14,7 +14,21 @@ export const App = () => {
   return (
     <main>
       <GithubUsersProvider>
-        <Home />
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+
+            <Route path='/favorite'>
+              <Favorite />
+            </Route>
+            <Route path='/*'>
+              <Error />
+            </Route>
+          </Switch>
+        </Router>
       </GithubUsersProvider>
     </main>
   )

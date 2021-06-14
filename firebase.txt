@@ -1,0 +1,11 @@
+ // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDRGsZXwzaHSLrnLxj2yqdg33iJuQBuUn8",
+    authDomain: "react-github-users-328ac.firebaseapp.com",
+    projectId: "react-github-users-328ac",
+    storageBucket: "react-github-users-328ac.appspot.com",
+    messagingSenderId: "142272702255",
+    appId: "1:142272702255:web:426ddb936e41a1d22a23da"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
