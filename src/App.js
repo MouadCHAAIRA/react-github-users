@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { GithubUsersContext, GithubUsersProvider } from './context/context'
 
-function App() {
+// pages
+import Home from './pages/Home'
+import Favorite from './pages/Favorite'
+
+// navbar component
+import Navbar from './components/Navbar'
+import Error from './pages/Error'
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <main>
+      <GithubUsersProvider>
+        <Home />
+      </GithubUsersProvider>
+    </main>
+  )
 }
-
-export default App;
